@@ -55,13 +55,50 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:16px}label{font-size:.85rem;
 <script>
 const STORE_KEY='rideforward_demo_applications_v1';
 function getApps(){try{return JSON.parse(localStorage.getItem(STORE_KEY)||'[]')}catch(e){return []}}
-document.getElementById('applicationForm').addEventListener('submit',function(e){
- e.preventDefault();
- const f=new FormData(this), app={submittedAt:new Date().toISOString(),name:f.get('name'),phone:f.get('phone'),district:f.get('district'),work:f.get('work'),need:f.get('need'),letter:f.get('letter'),status:'Interview request received',feeStatus:'Not due — payable only if interview request is accepted'};
- const apps=getApps(); apps.push(app); localStorage.setItem(STORE_KEY,JSON.stringify(apps));
- document.getElementById('msg').textContent='Saved in this browser demo. Your interview request is recorded locally; no payment has been taken. Keep this browser/device for the admin export.';
- this.reset();
+
+document.getElementById('applicationForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const f = new FormData(this);
+  const app = {
+    name: f.get('name'),
+    phone: f.get('phone'),
+    district: f.get('district'),
+    work: f.get('work'),
+    need: f.get('need'),
+    letter: f.get('letter')
+  };
+
+  const msg = document.getElementById('msg');
+  msg.textContent = 'Sending your interview request...';
+
+  try {
+    const response = await fetch(
+      'https://script.google.com/macros/s/AKfycbzYSAv2ls2nrX_5oqrU_P5BfA7MICWF3OGBUjdiSSZQBwGxpYAUm6EcsSizHM9Ebg8vug/exec',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        },
+        body: JSON.stringify(app)
+      }
+    );
+
+    const result = await response.json();
+
+    if (!result.success) {
+      throw new Error(result.error || 'The application could not be saved.');
+    }
+
+    msg.textContent = 'Your interview request has been submitted successfully. No payment has been taken.';
+    this.reset();
+
+  } catch (error) {
+    msg.textContent = 'We could not confirm your submission. Please try again. If the problem continues, contact RideForward.';
+    console.error('RideForward submission error:', error);
+  }
 });
+
 function csvCell(v){return '"'+String(v??'').replace(/"/g,'""')+'"'}
 document.getElementById('exportBtn').addEventListener('click',function(){
  const rows=[['Submitted At','Full Name','Phone','District','Employment / Occupation','Transport Need','Additional Information','Application Status','Fee Status'],...getApps().map(a=>[a.submittedAt,a.name,a.phone,a.district,a.work,a.need,a.letter,a.status,a.feeStatus])];
