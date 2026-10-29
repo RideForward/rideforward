@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ride Forward | Vehicle Donation</title>
+<style>
+:root{--ink:#17251f;--muted:#61716a;--green:#1d6b4d;--mint:#eaf4ee;--cream:#fbfaf6;--line:#dce5df;--gold:#f0bd58}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55}
+header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);background:#fff}
+.logo{font-weight:850;font-size:1.2rem;letter-spacing:-.04em}.logo span{color:var(--green)}
+nav a{margin-left:22px;color:var(--ink);text-decoration:none;font-size:.92rem}
+.btn{display:inline-block;background:var(--green);color:white;padding:13px 20px;border-radius:12px;text-decoration:none;border:0;font-weight:700;cursor:pointer}
+.hero{padding:72px 6% 64px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.eyebrow{color:var(--green);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem}
+h1{font-size:clamp(2.5rem,5.5vw,5rem);line-height:1.02;letter-spacing:-.06em;margin:15px 0 20px}
+.hero p{font-size:1.1rem;color:var(--muted);max-width:570px}.hero-card{background:var(--mint);border-radius:28px;padding:30px;min-height:320px;display:flex;flex-direction:column;justify-content:space-between}
+.bike{font-size:6rem;text-align:center;filter:grayscale(.1)}.tag{background:white;border-radius:999px;padding:7px 12px;font-size:.8rem;font-weight:700;width:max-content}
+section{padding:54px 6%}.section-head{max-width:650px;margin-bottom:28px}h2{font-size:2.2rem;letter-spacing:-.04em;margin:8px 0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{background:white;border:1px solid var(--line);padding:22px;border-radius:18px}.num{font-weight:900;color:var(--green);font-size:.85rem}.step h3{margin:8px 0}
+.application{background:#f0f5f1}.form-wrap{max-width:760px;background:white;padding:28px;border-radius:22px;border:1px solid var(--line)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px}label{font-size:.85rem;font-weight:700;display:block}input,select,textarea{width:100%;margin-top:6px;padding:12px;border:1px solid #cbd8d0;border-radius:10px;font:inherit;background:#fff}textarea{min-height:100px;resize:vertical}.full{grid-column:1/-1}.fee{background:#fff7e5;border:1px solid #f2dfb7;padding:14px;border-radius:12px;font-size:.92rem}
+.notice{color:var(--muted);font-size:.82rem}footer{padding:30px 6%;background:#17251f;color:#dbe6df;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:760px){nav a:not(.btn){display:none}.hero{grid-template-columns:1fr;padding-top:48px}.steps{grid-template-columns:1fr 1fr}form{grid-template-columns:1fr}.full{grid-column:auto}}
+</style>
+</head>
+<body>
+<header><div class="logo">Ride<span>Forward</span></div><nav><a href="#how">How it works</a><a href="#apply">Apply</a><a class="btn" href="#apply">Start application</a></nav></header>
+<main>
+<section class="hero">
+<div><div class="eyebrow">A community vehicle-donation initiative</div><h1>A ride can change<br>someone’s future.</h1><p>We connect vehicle donors with people who need reliable transport. Our team reviews applications, interviews applicants, helps prepare a cover letter, and forwards eligible applications to the donor.</p><a class="btn" href="#apply">Apply for the motorcycle</a><p class="notice">Submitting an application does not guarantee a vehicle. The donor makes the final decision.</p></div>
+<div class="hero-card"><div class="tag">First donation pilot · Sri Lanka</div><div class="bike" aria-label="Motorcycle illustration">🏍️</div><div><h3>One donor. One motorcycle.</h3><p>We’re starting small, with a transparent application and review process.</p></div></div>
+</section>
+<section id="how"><div class="section-head"><div class="eyebrow">Simple and transparent</div><h2>How the process works</h2><p>Every application is handled through our team—not submitted directly to the donor.</p></div>
+<div class="steps">
+<div class="step"><div class="num">01 / APPLY</div><h3>Submit your details</h3><p>Tell us about yourself, your transport needs, and why this motorcycle would help.</p></div>
+<div class="step"><div class="num">02 / REVIEW</div><h3>Initial interview</h3><p>Our team reviews your information and arranges an initial interview.</p></div>
+<div class="step"><div class="num">03 / PREPARE</div><h3>Application support</h3><p>We help you prepare a clear cover letter and complete your application.</p></div>
+<div class="step"><div class="num">04 / DONOR</div><h3>Donor decision</h3><p>We forward eligible applications. The donor chooses the recipient.</p></div>
+</div></section>
+<section class="application" id="apply"><div class="section-head"><div class="eyebrow">Application pilot</div><h2>Tell us about your situation</h2><p>Complete this form to request an interview. This demo stores submissions in this browser only. Use the admin export button below to download an Excel-compatible CSV.</p></div>
+<div class="form-wrap"><div class="fee"><strong>Application processing fee: LKR 500</strong><br>Fee covers application review, an initial interview, cover-letter assistance, and submission to the donor. It is not a payment for the motorcycle and does not guarantee selection. Payment and refund terms must be confirmed before the live launch.</div><br>
+<form id="applicationForm">
+<div><label for="name">Full name</label><input id="name" name="name" required></div>
+<div><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" required></div>
+<div><label for="district">District</label><input id="district" name="district" required></div>
+<div><label for="work">Employment / occupation</label><input id="work" name="work"></div>
+<div class="full"><label for="need">Why do you need a motorcycle?</label><textarea id="need" name="need" required></textarea></div>
+<div class="full"><label for="letter">Anything else you want us to know?</label><textarea id="letter" name="letter"></textarea></div>
+<div class="full"><label><input type="checkbox" required style="width:auto;margin-right:8px">I understand that the team reviews applications and the donor makes the final decision.</label></div>
+<div class="full"><p class="notice"><strong>When is the LKR 500 fee paid?</strong> Fill out this form first. If your request for an interview is accepted, we will contact you with the next steps and payment instructions. The LKR 500 application-processing fee is due only after your interview request is accepted. Paying the fee covers our application review, initial interview, cover-letter assistance, and submission to the donor; it does not guarantee selection.</p><button class="btn" type="submit">Request interview (demo)</button><p class="notice" id="msg" aria-live="polite"></p><button class="btn" type="button" id="exportBtn" style="margin-top:10px;background:#30443a">Export submissions for Excel (CSV)</button><p class="notice">Admin export: submissions saved on this device/browser only. For submissions from multiple visitors/devices, a secure backend or database is required.</div>
+</form></div></section>
+</main>
+<footer><div><strong>RideForward</strong><br><span class="notice">A vehicle donation pilot project</span></div><div class="notice">Contact details and organization information will be added before launch.</div></footer>
+<script>
+const STORE_KEY='rideforward_demo_applications_v1';
+function getApps(){try{return JSON.parse(localStorage.getItem(STORE_KEY)||'[]')}catch(e){return []}}
+document.getElementById('applicationForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ const f=new FormData(this), app={submittedAt:new Date().toISOString(),name:f.get('name'),phone:f.get('phone'),district:f.get('district'),work:f.get('work'),need:f.get('need'),letter:f.get('letter'),status:'Interview request received',feeStatus:'Not due — payable only if interview request is accepted'};
+ const apps=getApps(); apps.push(app); localStorage.setItem(STORE_KEY,JSON.stringify(apps));
+ document.getElementById('msg').textContent='Saved in this browser demo. Your interview request is recorded locally; no payment has been taken. Keep this browser/device for the admin export.';
+ this.reset();
+});
+function csvCell(v){return '"'+String(v??'').replace(/"/g,'""')+'"'}
+document.getElementById('exportBtn').addEventListener('click',function(){
+ const rows=[['Submitted At','Full Name','Phone','District','Employment / Occupation','Transport Need','Additional Information','Application Status','Fee Status'],...getApps().map(a=>[a.submittedAt,a.name,a.phone,a.district,a.work,a.need,a.letter,a.status,a.feeStatus])];
+ const csv='\\ufeff'+rows.map(r=>r.map(csvCell).join(',')).join('\\r\\n');
+ const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+ const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='RideForward_Applications.csv';link.click();URL.revokeObjectURL(url);
+ document.getElementById('msg').textContent='Export generated. Open RideForward_Applications.csv in Excel and use Save As .xlsx if you need an Excel workbook.';
+});
+</script>
+</body></html>
