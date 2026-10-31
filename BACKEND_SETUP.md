@@ -9,14 +9,15 @@ This repository now contains a **Supabase/Postgres backend foundation**, not a l
 - Supabase Edge Functions (to be added/configured) for email, deadline jobs, payment callbacks and admin workflows
 
 ## Current status
-- `supabase/migrations/0001_rideforward_core.sql`: core schema, enums, indexes, RLS policies and a donor-facing applicant summary view.
+- `supabase/migrations/0001_rideforward_core.sql`: initial core schema, enums, indexes, RLS policies and donor-facing summary view.
+- `supabase/migrations/0002_security_hardening.sql`: follow-on hardening for signup profile provisioning, column-level profile permissions, applicant-controlled story/CV sharing, scoped donor summaries, private document bucket policies, donor selection RPC and restricted application workflow permissions.
 - The website itself still uses its existing static form / Google Apps Script pilot flow. It is not yet wired to this schema.
 - No Supabase project has been provisioned, no migration has been applied, and no secrets/provider credentials are stored in this repository.
 
 ## Setup (project owner)
 1. Create a Supabase project in the intended organization and choose the correct region/data-retention configuration.
-2. Review `supabase/migrations/0001_rideforward_core.sql` with a database/security engineer before applying.
-3. Apply it to a **new empty project** using Supabase CLI or SQL Editor. Do not run against existing production data without backup and migration review.
+2. Review BOTH migrations with a database/security engineer before applying. The second migration depends on the first.
+3. Apply `0001_rideforward_core.sql` first, then `0002_security_hardening.sql`, to a **new empty project** using Supabase CLI or SQL Editor. Do not run against existing production data without backup and migration review.
 4. Create a private Storage bucket named `applicant-private-documents`. Add bucket/object policies that only allow an applicant to access objects under their own `auth.uid()` folder and admins to review. Never use a public bucket for identity/financial documents.
 5. Configure authentication email confirmation, password reset, MFA for admin accounts, and approved redirect URLs.
 6. Add server-side Edge Functions for profile onboarding/role assignment, application submission, document review, donor applicant summaries, selection/allocation approval, notification dispatch, deadline processing and payment webhooks.
