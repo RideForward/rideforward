@@ -222,3 +222,74 @@ revoke all on public.audit_events from anon;
 -- NOTE: Admin provisioning must be performed by a trusted operator using a
 -- secure server-side process or SQL Editor after verifying the account ID.
 -- Never allow signup metadata or browser code to assign the admin role.
+
+-- 9) Applicant-controlled sharing consent. Donors see story/CV only after
+-- the applicant explicitly enables each field for donor review.
+alter table public.profiles
+  add column if not exists share_story_with_donors boolean not null default false,
+  add column if not exists share_cv_with_donors boolean not null default false;
+
+grant update (share_story_with_donors, share_cv_with_donors)
+on public.profiles to authenticated;
+
+create or replace view public.donor_applicant_summary
+with (security_barrier = true)
+as
+select
+  a.id as application_id,
+  a.listing_id,
+  left(p.first_name, 8) as applicant_display_name,
+  case when p.verification_status = 'verified' then p.district else null end as district,
+  case when p.verification_status = 'verified' then p.occupation else null end as occupation,
+  case when p.verification_status = 'verified' and p.share_story_with_donors then p.story else null end as story,
+  case when p.verification_status = 'verified' and p.share_cv_with_donors then p.cv_text else null end as cv_text,
+  a.status as application_status,
+  p.verification_status,
+  a.submitted_at,
+  a.donor_selection,
+  a.admin_allocation_approved
+from public.applications a
+join public.profiles p on p.id = a.applicant_id
+join public.donation_listings l on l.id = a.listing_id
+where l.donor_id = (select auth.uid())
+  and public.current_role() = 'donor';
+
+-- 10) Applicants may create applications with only user-supplied fields.
+-- They cannot set their own status/selection/admin approval or update any of
+-- those workflow fields directly. Withdrawal is a narrowly scoped RPC.
+revoke all on public.applications from anon, authenticated;
+grant select on public.applications to authenticated;
+grant insert (listing_id, applicant_id, applicant_message)
+on public.applications to authenticated;
+
+drop policy if exists applications_applicant_update on public.applications;
+
+create or replace function public.withdraw_application(p_application_id uuid)
+returns void
+language plpgsql
+security definer
+set search_path = ''
+as $$
+begin
+  if auth.uid() is null then
+    raise exception 'Authentication required';
+  end if;
+
+  update public.applications
+  set status = 'withdrawn',
+      updated_at = now()
+  where id = p_application_id
+    and applicant_id = auth.uid()
+    and status in ('submitted', 'under_review', 'needs_information', 'eligible');
+
+  if not found then
+    raise exception 'Application cannot be withdrawn';
+  end if;
+end;
+$$;
+
+revoke all on function public.withdraw_application(uuid) from public, anon;
+grant execute on function public.withdraw_application(uuid) to authenticated;
+
+-- Story/CV sharing switches are applicant-owned preferences, default OFF.
+-- Role and verification fields remain server/admin controlled.
