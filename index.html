@@ -16,7 +16,7 @@
 <main>
 <section class="hero">
 <div><div class="eyebrow">RideForward · Sri Lanka launch</div><h1>Dream bigger.<br>Go further.</h1><p>A community that connects people with meaningful opportunities—from a motorcycle donation to education, travel, experiences and career development.</p><div class="hero-actions"><a class="btn" href="#opportunities">Explore opportunities ↓</a><a class="btn outline" href="#membership">Founding membership</a></div>
-<div class="countdown"><div class="counttitle">🎉 Countdown to the Founding 100 Launch Party</div><div class="timer" aria-label="Countdown to campaign end"><div class="unit"><div class="num" id="days">15</div><div class="label">Days</div></div><div class="unit"><div class="num" id="hours">00</div><div class="label">Hours</div></div><div class="unit"><div class="num" id="minutes">00</div><div class="label">Minutes</div></div><div class="unit"><div class="num" id="seconds">00</div><div class="label">Seconds</div></div></div><p class="countnote" id="countdownMessage">Sunday, 20 December 2026 · Founding 100 launch celebration</p></div>
+<div class="countdown"><div class="counttitle">🎉 Countdown to the Founding 100 Launch Party</div><div class="timer" aria-label="Countdown to campaign end"><div class="unit"><div class="num" id="days">15</div><div class="label">Days</div></div><div class="unit"><div class="num" id="hours">00</div><div class="label">Hours</div></div><div class="unit"><div class="num" id="minutes">00</div><div class="label">Minutes</div></div><div class="unit"><div class="num" id="seconds">00</div><div class="label">Seconds</div></div></div><p class="countnote" id="countdownMessage">Wednesday, 23 December 2026 · Founding 100 launch celebration</p></div>
 </div>
 <div class="hero-art"><div class="artemoji" aria-hidden="true">🏍️</div><div class="artlabel">Live. Learn. Travel. Thrive.</div></div>
 </section>
@@ -36,9 +36,9 @@
 </main>
 <footer><div><div class="footbrand">Ride<span>Forward</span></div><div class="operator">More Opportunities. Better Experiences.<br><strong>Operated by Global Connection Pvt Ltd</strong></div></div><div class="footlinks"><a href="#opportunities">Opportunities</a><a href="#membership">Membership</a><a href="#partners">Partners</a><a href="#apply">Apply</a></div><div class="legal-links"><a href="terms.html">Terms &amp; Conditions</a><a href="privacy.html">Privacy Policy</a></div></footer>
 <script>
-// Fixed event deadline: Sunday, 20 December 2026 at 5:00 PM Sri Lanka time.
+// Fixed event deadline: Wednesday, 23 December 2026 at 5:00 PM Sri Lanka time.
 // This gives every visitor the same countdown, independent of browser storage.
-const launchDeadline=new Date("2026-12-20T17:00:00+05:30").getTime();
+const launchDeadline=new Date("2026-12-23T17:00:00+05:30").getTime();
 function updateCountdown(){const r=launchDeadline-Date.now();if(r<=0){["days","hours","minutes","seconds"].forEach(id=>document.getElementById(id).textContent="00");document.getElementById("countdownMessage").textContent="The Founding 100 Launch Party is here!";return;}const d=Math.floor(r/86400000),h=Math.floor(r/3600000%24),m=Math.floor(r/60000%60),s=Math.floor(r/1000%60);document.getElementById("days").textContent=String(d).padStart(2,"0");document.getElementById("hours").textContent=String(h).padStart(2,"0");document.getElementById("minutes").textContent=String(m).padStart(2,"0");document.getElementById("seconds").textContent=String(s).padStart(2,"0");}
 updateCountdown();setInterval(updateCountdown,1000);
 const GOOGLE_SCRIPT_URL =
