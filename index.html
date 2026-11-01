@@ -1,502 +1,50 @@
-
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RideForward Initiative | Donation Platform</title>
-
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RideForward | More Opportunities. Better Experiences.</title>
+<meta name="description" content="RideForward connects people with donation opportunities, education, travel, experiences and career development. Operated by Global Connection Pvt Ltd.">
 <style>
-:root{
---ink:#17251f;
---muted:#61716a;
---green:#1d6b4d;
---mint:#eaf4ee;
---cream:#fbfaf6;
---line:#dce5df;
---gold:#f0bd58;
-}
-*{box-sizing:border-box}
-body{
-margin:0;
-font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
-color:var(--ink);
-background:var(--cream);
-line-height:1.55
-}
-header{
-padding:20px 6%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid var(--line);
-background:#fff
-}
-.logo{font-weight:850;font-size:1.2rem;letter-spacing:-.04em}
-.logo span{color:var(--green)}
-nav a{
-margin-left:16px;
-color:var(--ink);
-text-decoration:none;
-font-size:.92rem
-}
-.btn{
-display:inline-block;
-background:var(--green);
-color:white;
-padding:13px 20px;
-border-radius:12px;
-text-decoration:none;
-border:0;
-font-weight:700;
-cursor:pointer
-}
-.hero{
-padding:72px 6% 64px;
-display:grid;
-grid-template-columns:1.1fr .9fr;
-gap:40px;
-align-items:center
-}
-.eyebrow{
-color:var(--green);
-font-weight:800;
-text-transform:uppercase;
-letter-spacing:.12em;
-font-size:.75rem
-}
-h1{
-font-size:clamp(2.5rem,5.5vw,5rem);
-line-height:1.02;
-letter-spacing:-.06em;
-margin:15px 0 20px
-}
-.hero p{font-size:1.1rem;color:var(--muted);max-width:570px}
-.hero-card{
-background:var(--mint);
-border-radius:28px;
-padding:30px;
-min-height:320px;
-display:flex;
-flex-direction:column;
-justify-content:space-between
-}
-.bike{font-size:6rem;text-align:center}
-.tag{
-background:white;
-border-radius:999px;
-padding:7px 12px;
-font-size:.8rem;
-font-weight:700;
-width:max-content
-}
-section{padding:54px 6%}
-.section-head{max-width:650px;margin-bottom:28px}
-h2{font-size:2.2rem;letter-spacing:-.04em;margin:8px 0}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.step{
-background:white;
-border:1px solid var(--line);
-padding:22px;
-border-radius:18px
-}
-.num{font-weight:900;color:var(--green);font-size:.85rem}
-.step h3{margin:8px 0}
-.application{background:#f0f5f1}
-.form-wrap{
-max-width:760px;
-background:white;
-padding:28px;
-border-radius:22px;
-border:1px solid var(--line)
-}
-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-label{font-size:.85rem;font-weight:700;display:block}
-input,select,textarea{
-width:100%;
-margin-top:6px;
-padding:12px;
-border:1px solid #cbd8d0;
-border-radius:10px;
-font:inherit;
-background:#fff
-}
-textarea{min-height:100px;resize:vertical}
-.full{grid-column:1/-1}
-.fee{
-background:#fff7e5;
-border:1px solid #f2dfb7;
-padding:14px;
-border-radius:12px;
-font-size:.92rem
-}
-.notice{color:var(--muted);font-size:.82rem}
-.countdown{
-margin:25px 0;
-padding:20px;
-background:#fff;
-border:1px solid var(--line);
-border-radius:18px;
-max-width:560px
-}
-.countdown-title{
-font-weight:800;
-color:var(--green);
-margin-bottom:12px
-}
-.timer{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:8px
-}
-.timer-unit{
-background:var(--mint);
-border-radius:12px;
-padding:12px 5px;
-text-align:center
-}
-.timer-number{
-font-size:1.8rem;
-font-weight:850;
-line-height:1.2
-}
-.timer-label{
-font-size:.7rem;
-text-transform:uppercase;
-letter-spacing:.08em;
-color:var(--muted)
-}
-footer{
-padding:30px 6%;
-background:#17251f;
-color:#dbe6df;
-display:flex;
-justify-content:space-between;
-gap:20px;
-flex-wrap:wrap
-}
-@media(max-width:760px){
-nav a:not(.btn){display:none}
-.hero{grid-template-columns:1fr;padding-top:48px}
-.steps{grid-template-columns:1fr 1fr}
-form{grid-template-columns:1fr}
-.full{grid-column:auto}
-}
-@media(max-width:420px){
-.steps{grid-template-columns:1fr}
-.timer-number{font-size:1.4rem}
-}
+:root{--green:#064b2c;--green2:#137448;--cream:#fffaf0;--ink:#12251b;--muted:#65766c;--gold:#f7c844;--line:#dce6dd;--mint:#eaf3e9}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.55 Inter,system-ui,-apple-system,Segoe UI,sans-serif}a{color:inherit}header{position:sticky;top:0;z-index:10;background:#fffdf8ee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:14px clamp(18px,5vw,72px);display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none}.mark{font-size:2rem;color:var(--green)}.brandname{font-weight:900;font-size:1.35rem;letter-spacing:-.06em}.brandname span{color:var(--green2)}.brand small{display:block;font-size:.65rem;letter-spacing:0;color:var(--muted);font-weight:600}.nav{display:flex;align-items:center;gap:22px}.nav a{text-decoration:none;font-weight:650;font-size:.9rem}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--green);color:white;text-decoration:none;border:0;border-radius:999px;padding:13px 22px;font-weight:800;cursor:pointer}.btn.gold{background:var(--gold);color:#14251a}.btn.outline{background:transparent;color:var(--green);border:1px solid var(--green)}.hero{padding:70px clamp(18px,5vw,72px) 56px;background:linear-gradient(120deg,#f9f3df,#e7f1e7);display:grid;grid-template-columns:1fr .9fr;gap:44px;align-items:center;overflow:hidden}.eyebrow{text-transform:uppercase;letter-spacing:.14em;color:var(--green2);font-size:.75rem;font-weight:900}.hero h1{font-size:clamp(2.8rem,6.2vw,5.8rem);line-height:.99;letter-spacing:-.075em;margin:14px 0 22px;max-width:780px}.hero p{font-size:1.1rem;color:#52675b;max-width:600px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:25px 0}.hero-art{min-height:350px;border-radius:32px;background:radial-gradient(circle at 70% 20%,#fff9d8,transparent 32%),linear-gradient(145deg,#d2e7d5,#8bbf9c);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.hero-art:before{content:"";position:absolute;width:340px;height:340px;border:1px solid #ffffff99;border-radius:50%;right:-65px;bottom:-130px}.artemoji{font-size:clamp(6rem,15vw,11rem);filter:drop-shadow(0 18px 12px #24452b44)}.artlabel{position:absolute;bottom:22px;left:22px;background:#fffdf0;padding:10px 15px;border-radius:999px;font-weight:800;font-size:.8rem}.countdown{margin-top:24px;max-width:560px;background:white;border:1px solid var(--line);border-radius:22px;padding:18px}.counttitle{font-weight:900;color:var(--green);margin-bottom:12px}.timer{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.unit{background:var(--mint);border-radius:12px;padding:10px 4px;text-align:center}.num{font-size:1.75rem;line-height:1.2;font-weight:900}.label{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}.countnote{font-size:.78rem!important;margin:10px 0 0!important}.section{padding:64px clamp(18px,5vw,72px)}.sectionhead{max-width:760px;margin-bottom:30px}.section h2{font-size:clamp(2rem,4vw,3.3rem);line-height:1.05;letter-spacing:-.06em;margin:9px 0 13px}.sectionhead p{color:var(--muted)}.prizes{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.prize{background:white;border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}.prizevisual{height:135px;background:var(--mint);display:grid;place-items:center;font-size:4rem}.prizebody{padding:17px;flex:1}.prize h3{font-size:1rem;line-height:1.25;margin:0 0 8px}.prize p{font-size:.83rem;color:var(--muted);margin:0}.prize .pill{display:inline-block;background:#fff4ce;color:#604b08;border-radius:999px;padding:5px 9px;font-size:.68rem;font-weight:900;margin-top:12px}.membership{background:var(--green);color:white;display:grid;grid-template-columns:1fr .8fr;gap:30px;align-items:center}.membership .eyebrow{color:#f6d65b}.membership p{color:#d7e8dc}.price{font-size:clamp(2.5rem,5vw,4.5rem);font-weight:950;letter-spacing:-.07em}.featurelist{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0}.feature{background:#ffffff13;border:1px solid #ffffff25;border-radius:13px;padding:12px;font-weight:700;font-size:.9rem}.partnergrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.partner{border:1px solid var(--line);border-radius:18px;padding:22px;background:white}.partner .icon{font-size:2rem}.partner h3{margin:8px 0}.partner p{color:var(--muted);font-size:.9rem}.howgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.how{background:white;border:1px solid var(--line);border-radius:18px;padding:22px}.how strong{color:var(--green2);font-size:.8rem}.how h3{margin:8px 0}.how p{font-size:.88rem;color:var(--muted)}.application{background:#edf4ed}.formwrap{max-width:800px;background:white;padding:28px;border:1px solid var(--line);border-radius:24px}.fee{background:#fff6df;border:1px solid #f0dfb7;border-radius:14px;padding:15px;font-size:.9rem;margin-bottom:20px}form{display:grid;grid-template-columns:1fr 1fr;gap:15px}label{display:block;font-size:.84rem;font-weight:800}input,textarea,select{width:100%;padding:12px;border:1px solid #cbd9cf;border-radius:11px;font:inherit;margin-top:6px;background:white}textarea{min-height:100px;resize:vertical}.full{grid-column:1/-1}.notice{font-size:.82rem;color:var(--muted)}footer{background:#082f1d;color:#e5f0e7;padding:32px clamp(18px,5vw,72px);display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}.footbrand{font-weight:900;font-size:1.35rem}.footbrand span{color:#9dd3ad}.operator{font-size:.82rem;color:#c7d9cc}.footlinks{display:flex;gap:16px;flex-wrap:wrap}.footlinks a{font-size:.85rem;color:#dbe9df;text-decoration:none}@media(max-width:950px){.prizes{grid-template-columns:repeat(2,1fr)}.howgrid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.hero-art{min-height:250px}.membership{grid-template-columns:1fr}.partnergrid{grid-template-columns:1fr 1fr}}@media(max-width:620px){header{padding:12px 16px}.nav a:not(.btn){display:none}.hero{padding:46px 18px}.section{padding:48px 18px}.prizes,.partnergrid,.howgrid{grid-template-columns:1fr}.prizevisual{height:160px}.featurelist{grid-template-columns:1fr}.formwrap{padding:18px}form{grid-template-columns:1fr}.full{grid-column:auto}.timer .num{font-size:1.35rem}}
 </style>
 </head>
-
 <body>
-
 <header>
-<div class="logo">Ride<span>Forward</span> <small style="display:block;font-size:.62rem;letter-spacing:.02em;color:var(--muted);font-weight:600">INITIATIVE</small></div>
-<nav>
-<a href="#how">How it works</a>
-<a href="#donations">Donations</a>
-<a href="#applicant-portal">Applicant portal</a>
-<a href="#donor-portal">Donor portal</a>
-<a class="btn" href="#apply">Apply</a>
-</nav>
+<a class="brand" href="#" aria-label="RideForward home"><span class="mark">♧</span><span class="brandname">Ride<span>Forward</span><small>More Opportunities. Better Experiences.</small></span></a>
+<nav class="nav"><a href="#opportunities">Opportunities</a><a href="#membership">Membership</a><a href="#partners">Partners</a><a href="#apply" class="btn">Apply now →</a></nav>
 </header>
-
 <main>
-
 <section class="hero">
-
-<div>
-<div class="eyebrow">RideForward Initiative · Donation Platform</div>
-
-<h1>A ride can change<br>someone’s future.</h1>
-
-<p>
-We connect vehicle donors with people who need reliable transport.
-Our team reviews applications, interviews applicants, helps prepare
-a cover letter, and forwards eligible applications to the donor.
-</p>
-
-<a class="btn" href="#apply">Apply for the motorcycle</a>
-
-<p class="notice">
-Submitting an application does not guarantee a vehicle.
-The donor makes the final decision.
-</p>
-
-<div class="countdown">
-<div class="countdown-title">Our launch countdown</div>
-
-<div class="timer" aria-label="Countdown to launch">
-<div class="timer-unit">
-<div class="timer-number" id="days">14</div>
-<div class="timer-label">Days</div>
+<div><div class="eyebrow">RideForward · Sri Lanka launch</div><h1>Dream bigger.<br>Go further.</h1><p>A community that connects people with meaningful opportunities—from a motorcycle donation to education, travel, experiences and career development.</p><div class="hero-actions"><a class="btn" href="#opportunities">Explore opportunities ↓</a><a class="btn outline" href="#membership">Founding membership</a></div>
+<div class="countdown"><div class="counttitle">⏳ 15-day launch campaign</div><div class="timer" aria-label="Countdown to campaign end"><div class="unit"><div class="num" id="days">15</div><div class="label">Days</div></div><div class="unit"><div class="num" id="hours">00</div><div class="label">Hours</div></div><div class="unit"><div class="num" id="minutes">00</div><div class="label">Minutes</div></div><div class="unit"><div class="num" id="seconds">00</div><div class="label">Seconds</div></div></div><p class="countnote" id="countdownMessage">Launch campaign countdown. See each opportunity for its eligibility and terms.</p></div>
 </div>
-<div class="timer-unit">
-<div class="timer-number" id="hours">00</div>
-<div class="timer-label">Hours</div>
-</div>
-<div class="timer-unit">
-<div class="timer-number" id="minutes">00</div>
-<div class="timer-label">Minutes</div>
-</div>
-<div class="timer-unit">
-<div class="timer-number" id="seconds">00</div>
-<div class="timer-label">Seconds</div>
-</div>
-</div>
-
-<p class="notice" id="countdownMessage" aria-live="polite">
-Countdown to launch.
-</p>
-</div>
-
-<div class="hero-card">
-<div class="tag">First donation pilot · Sri Lanka</div>
-<div class="bike" aria-label="Motorcycle illustration">🏍️</div>
-<div>
-<h3>One donor. One motorcycle.</h3>
-<p>We’re starting small, with a transparent application and review process.</p>
-</div>
-</div>
-
+<div class="hero-art"><div class="artemoji" aria-hidden="true">🏍️</div><div class="artlabel">Live. Learn. Travel. Thrive.</div></div>
 </section>
-
-<section id="how">
-
-<div class="section-head">
-<div class="eyebrow">Simple and transparent</div>
-<h2>How the process works</h2>
-<p>Every application is handled through our team—not submitted directly to the donor.</p>
-</div>
-
-<div class="steps">
-
-<div class="step">
-<div class="num">01 / APPLY</div>
-<h3>Submit your details</h3>
-<p>Tell us about yourself, your transport needs, and why this motorcycle would help.</p>
-</div>
-
-<div class="step">
-<div class="num">02 / REVIEW</div>
-<h3>Initial interview</h3>
-<p>Our team reviews your information and arranges an initial interview.</p>
-</div>
-
-<div class="step">
-<div class="num">03 / PREPARE</div>
-<h3>Application support</h3>
-<p>We help you prepare a clear cover letter and complete your application.</p>
-</div>
-
-<div class="step">
-<div class="num">04 / DONOR</div>
-<h3>Donor decision</h3>
-<p>We forward eligible applications. The donor chooses the recipient.</p>
-</div>
-
-</div>
+<section class="section" id="opportunities"><div class="sectionhead"><div class="eyebrow">Launch giveaway · five opportunities</div><h2>Something meaningful could be next.</h2><p>Explore our opening campaign opportunities. Offers are subject to partner confirmation, eligibility, availability and published terms.</p></div>
+<div class="prizes">
+<article class="prize"><div class="prizevisual">🏍️</div><div class="prizebody"><h3>Motorcycle donation</h3><p>Apply for the first RideForward vehicle donation pilot.</p><span class="pill">Donation opportunity</span></div></article>
+<article class="prize"><div class="prizevisual">🇪🇺</div><div class="prizebody"><h3>50% off a European tour · 2027</h3><p>A proposed discounted tour experience for one selected recipient.</p><span class="pill">50% discount target</span></div></article>
+<article class="prize"><div class="prizevisual">🏡</div><div class="prizebody"><h3>One-night villa stay</h3><p>A proposed one-night stay at a villa on Sri Lanka’s southern coast.</p><span class="pill">1 night · South</span></div></article>
+<article class="prize"><div class="prizevisual">🎟️</div><div class="prizebody"><h3>Two event tickets</h3><p>Two tickets to a participating event, details to be announced.</p><span class="pill">2 tickets</span></div></article>
+<article class="prize"><div class="prizevisual">🤝</div><div class="prizebody"><h3>1:1 life coaching</h3><p>A coaching lesson with an international businessman focused on growth and international business opportunities.</p><span class="pill">Career & business</span></div></article>
+</div><p class="notice" style="margin-top:18px">These are planned launch offers. RideForward will identify which are confirmed and publish the sponsor, eligibility, deadline and any participant costs before applications open.</p>
 </section>
-
-<section id="donations">
-<div class="section-head">
-<div class="eyebrow">Explore support</div>
-<h2>Donation opportunities</h2>
-<p>Browse available donations and apply to the opportunity that fits your needs. Listings will show the donation details, location, requirements and shared closing date.</p>
-</div>
-<div class="steps">
-<div class="step"><div class="num">VEHICLES</div><h3>Cars & motorcycles</h3><p>Transport support for eligible applicants.</p></div>
-<div class="step"><div class="num">OTHER ASSETS</div><h3>Boats, trucks & more</h3><p>Donors can list other eligible vehicles and assets.</p></div>
-<div class="step"><div class="num">HOUSING</div><h3>Temporary or permanent</h3><p>Housing and property opportunities may be listed as they become available.</p></div>
-<div class="step"><div class="num">FAIR PROCESS</div><h3>Reviewed applications</h3><p>RideForward oversees eligibility and allocation. A donor's selection is not final until reviewed.</p></div>
-</div>
-<p class="notice">Donation listings and application tracking are planned portal features. They are not yet connected to a secure live database.</p>
-</section>
-
-<section id="applicant-portal" style="background:#fff">
-<div class="section-head">
-<div class="eyebrow">For applicants</div>
-<h2>Your applicant portal</h2>
-<p>The planned applicant portal will let you manage your profile, story, CV, personal book, supporting documents, membership, applications and notifications in one place.</p>
-</div>
-<div class="steps">
-<div class="step"><div class="num">01</div><h3>Build your profile</h3><p>Maintain your story and application details.</p></div>
-<div class="step"><div class="num">02</div><h3>Upload documents</h3><p>Submit supporting documents for private admin verification.</p></div>
-<div class="step"><div class="num">03</div><h3>Track applications</h3><p>See application and verification status, and requests for corrections.</p></div>
-<div class="step"><div class="num">04</div><h3>Get updates</h3><p>Receive account, application, selection and membership notices.</p></div>
-</div>
-<p class="notice">Applicant accounts, document upload and secure status tracking are not live yet. Please use the application form below for the current pilot.</p>
-</section>
-
-<section id="donor-portal">
-<div class="section-head">
-<div class="eyebrow">For donors</div>
-<h2>Your donor portal</h2>
-<p>The planned donor portal will let donors publish and manage donation listings, set shared deadlines, review applicants for their own listings and record selection preferences.</p>
-</div>
-<div class="steps">
-<div class="step"><div class="num">01</div><h3>Create a listing</h3><p>Add category, description, condition, location, photos and requirements.</p></div>
-<div class="step"><div class="num">02</div><h3>Review applicants</h3><p>View only relevant applicant information and verification summaries.</p></div>
-<div class="step"><div class="num">03</div><h3>Set a deadline</h3><p>Manage the listing deadline and status for all applicants.</p></div>
-<div class="step"><div class="num">04</div><h3>Choose with oversight</h3><p>Record your selection; RideForward retains final allocation oversight.</p></div>
-</div>
-<p class="notice">Donor registration, listing management, applicant review and selection tools are not live yet.</p>
-</section>
-
-<section class="application" id="apply">
-
-<div class="section-head">
-<div class="eyebrow">Application pilot</div>
-<h2>Tell us about your situation</h2>
-<p>
-Complete this form to request an interview.
-Your application will be sent to our application spreadsheet.
-No payment is taken when you submit this form.
-</p>
-</div>
-
-<div class="form-wrap">
-
-<div class="fee">
-<strong>Application processing fee: LKR 750</strong><br>
-The processing fee is payable only after your interview request
-has been accepted by RideForward. No payment is required to
-submit your application. If your request is accepted, we will
-contact you with the next steps and payment instructions.
-
-The fee covers application review, an initial interview,
-cover-letter assistance, and submission to the donor.
-It is not a payment for the motorcycle and does not guarantee selection.
-</div>
-
-<br>
-
-<form id="applicationForm">
-
-<div>
-<label for="name">Full name</label>
-<input id="name" name="name" autocomplete="name" required>
-</div>
-
-<div>
-<label for="phone">Phone number</label>
-<input id="phone" name="phone" type="tel" autocomplete="tel" required>
-</div>
-
-<div>
-<label for="district">District</label>
-<input id="district" name="district" required>
-</div>
-
-<div>
-<label for="work">Employment / occupation</label>
-<input id="work" name="work">
-</div>
-
-<div class="full">
-<label for="need">Why do you need a motorcycle?</label>
-<textarea id="need" name="need" required></textarea>
-</div>
-
-<div class="full">
-<label for="letter">Anything else you want us to know?</label>
-<textarea id="letter" name="letter"></textarea>
-</div>
-
-<div class="full">
-<label>
-<input type="checkbox" name="consent" required style="width:auto;margin-right:8px">
-I understand that RideForward reviews applications and the donor makes the final decision.
-I understand that the LKR 750 processing fee is payable only if my interview request is accepted.
-</label>
-</div>
-
-<div class="full">
-
-<p class="notice">
-<strong>When is the LKR 750 fee paid?</strong><br>
-Submit your application first. If your interview request is accepted,
-RideForward will contact you with the next steps and payment instructions.
-No fee is due before acceptance. Paying the processing fee does not
-guarantee that you will receive the motorcycle.
-</p>
-
-<button class="btn" type="submit">Request interview</button>
-
-<p class="notice" id="msg" aria-live="polite"></p>
-
-</div>
-
-</form>
-</div>
-</section>
+<section class="section membership" id="membership"><div><div class="eyebrow">Founding 100 · limited launch offer</div><h2>Join RideForward for life.</h2><p>Become one of the first 100 founding members and help grow a community built around opportunities and experiences.</p><div class="price">LKR 7,500 <span style="font-size:1rem;letter-spacing:0">one-time</span></div><div class="featurelist"><div class="feature">♾️ Lifetime membership</div><div class="feature">🪙 500 credits each month</div><div class="feature">🎫 Up to 5 applications/month</div><div class="feature">🎓 Member opportunity access</div></div><a class="btn gold" href="#apply">Become a founding member →</a></div><div><h3>More than giveaways</h3><p>Member offers may include education discounts, hotel and villa experiences, tours, events, restaurant deals and career development. Specific benefits depend on partner agreements and published terms.</p><p class="notice" style="color:#d7e8dc">Membership does not guarantee selection for a donation or giveaway. Credits are platform application credits, not cash.</p></div></section>
+<section class="section" id="partners"><div class="sectionhead"><div class="eyebrow">Opportunities through partnership</div><h2>Businesses make more possible.</h2><p>RideForward works with businesses and organizations to bring members access to experiences, education, services and professional growth.</p></div><div class="partnergrid"><article class="partner"><div class="icon">🎓</div><h3>Education & scholarships</h3><p>Course discounts or scholarships, including a target of 50% off for the first year where institutes agree.</p></article><article class="partner"><div class="icon">🏨</div><h3>Hotels & villas</h3><p>Partner stays, including a proposed complimentary night subject to availability and sponsor terms.</p></article><article class="partner"><div class="icon">🍽️</div><h3>Dining & restaurants</h3><p>Free meals, member discounts or special menus from participating restaurants.</p></article><article class="partner"><div class="icon">🎭</div><h3>Events & leisure</h3><p>Discounted event tickets, activities and entertainment experiences.</p></article><article class="partner"><div class="icon">🌍</div><h3>Travel & tours</h3><p>Tour discounts and sponsored travel opportunities, including planned 2027 Europe travel offer.</p></article><article class="partner"><div class="icon">💼</div><h3>Career development</h3><p>In-house coaching and professional training delivered through Global Connection.</p></article></div></section>
+<section class="section"><div class="sectionhead"><div class="eyebrow">How RideForward works</div><h2>Apply. Review. Opportunity.</h2></div><div class="howgrid"><article class="how"><strong>01 · EXPLORE</strong><h3>Find an opportunity</h3><p>Review the programme details, eligibility and terms.</p></article><article class="how"><strong>02 · APPLY</strong><h3>Use your credits</h3><p>Members apply within the monthly allowance and opportunity rules.</p></article><article class="how"><strong>03 · REVIEW</strong><h3>Applications reviewed</h3><p>RideForward or the programme partner reviews eligible applications.</p></article><article class="how"><strong>04 · OUTCOME</strong><h3>Selection & updates</h3><p>Recipients are notified according to each programme’s published process.</p></article></div></section>
+<section class="section application" id="apply"><div class="sectionhead"><div class="eyebrow">Start here</div><h2>Tell us about yourself.</h2><p>For the current pilot, use this form to request an interview for the motorcycle donation. New membership and opportunity applications will be added as they become available.</p></div><div class="formwrap"><div class="fee"><strong>Application processing fee: LKR 750</strong><br>No payment is taken when you submit this form. The fee is payable only after RideForward accepts your interview request. Payment does not guarantee selection or a donation.</div><form id="applicationForm"><div><label for="name">Full name</label><input id="name" name="name" autocomplete="name" required></div><div><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div><div><label for="district">District</label><input id="district" name="district" required></div><div><label for="work">Employment / occupation</label><input id="work" name="work"></div><div class="full"><label for="need">Why do you need a motorcycle?</label><textarea id="need" name="need" required></textarea></div><div class="full"><label for="letter">Anything else you want us to know?</label><textarea id="letter" name="letter"></textarea></div><div class="full"><label><input type="checkbox" name="consent" required style="width:auto;margin-right:8px">I understand that RideForward reviews applications and the donor makes the final decision. I understand the LKR 750 fee is payable only if my interview request is accepted.</label></div><div class="full"><button class="btn" type="submit">Request interview →</button><p class="notice" id="msg" aria-live="polite"></p></div></form></div></section>
 </main>
-
-<footer>
-<div>
-<strong>RideForward Initiative</strong><br>
-<span class="notice">Operated by Global Connection (Pvt) Ltd</span>
-</div>
-</footer>
-
+<footer><div><div class="footbrand">Ride<span>Forward</span></div><div class="operator">More Opportunities. Better Experiences.<br><strong>Operated by Global Connection Pvt Ltd</strong></div></div><div class="footlinks"><a href="#opportunities">Opportunities</a><a href="#membership">Membership</a><a href="#partners">Partners</a><a href="#apply">Apply</a></div></footer>
 <script>
-
-// =======================================
-// RIDEFORWARD 14-DAY COUNTDOWN
-// =======================================
-
-// Countdown begins when this website is first opened
-// in each visitor's browser and lasts for 14 days.
-// The saved deadline remains the same in that browser.
-
-const COUNTDOWN_KEY = "rideforward_launch_deadline_v1";
-const FOURTEEN_DAYS = 14 * 24 * 60 * 60 * 1000;
-
-let launchDeadline = localStorage.getItem(COUNTDOWN_KEY);
-
-if (!launchDeadline) {
-  launchDeadline = Date.now() + FOURTEEN_DAYS;
-  localStorage.setItem(COUNTDOWN_KEY, String(launchDeadline));
-}
-
-launchDeadline = Number(launchDeadline);
-
-function updateCountdown() {
-  const remaining = launchDeadline - Date.now();
-
-  if (remaining <= 0) {
-    document.getElementById("days").textContent = "00";
-    document.getElementById("hours").textContent = "00";
-    document.getElementById("minutes").textContent = "00";
-    document.getElementById("seconds").textContent = "00";
-    document.getElementById("countdownMessage").textContent =
-      "Our countdown has ended. Stay tuned for RideForward updates.";
-    return;
-  }
-
-  const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((remaining / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((remaining / (1000 * 60)) % 60);
-  const seconds = Math.floor((remaining / 1000) % 60);
-
-  document.getElementById("days").textContent = String(days).padStart(2, "0");
-  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
-  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
-  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
-
-  document.getElementById("countdownMessage").textContent =
-    "Counting down to the RideForward launch.";
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-
-// =======================================
-// GOOGLE SHEETS APPLICATION SUBMISSION
-// =======================================
-
+// Campaign deadline is saved per browser for this draft. Set a shared official
+// campaign end timestamp before launch so all visitors see the same deadline.
+const COUNTDOWN_KEY="rideforward_campaign_deadline_v2";
+const FIFTEEN_DAYS=15*24*60*60*1000;
+let launchDeadline=localStorage.getItem(COUNTDOWN_KEY);
+if(!launchDeadline){launchDeadline=Date.now()+FIFTEEN_DAYS;localStorage.setItem(COUNTDOWN_KEY,String(launchDeadline));}
+launchDeadline=Number(launchDeadline);
+function updateCountdown(){const r=launchDeadline-Date.now();if(r<=0){["days","hours","minutes","seconds"].forEach(id=>document.getElementById(id).textContent="00");document.getElementById("countdownMessage").textContent="This campaign countdown has ended. Check RideForward for the next opportunities.";return;}const d=Math.floor(r/86400000),h=Math.floor(r/3600000%24),m=Math.floor(r/60000%60),s=Math.floor(r/1000%60);document.getElementById("days").textContent=String(d).padStart(2,"0");document.getElementById("hours").textContent=String(h).padStart(2,"0");document.getElementById("minutes").textContent=String(m).padStart(2,"0");document.getElementById("seconds").textContent=String(s).padStart(2,"0");}
+updateCountdown();setInterval(updateCountdown,1000);
 const GOOGLE_SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbzYSAv2ls2nrX_5oqrU_P5BfA7MICWF3OGBUjdiSSZQBwGxpYAUm6EcsSizHM9Ebg8vug/exec";
 
@@ -563,7 +111,6 @@ document.getElementById("applicationForm").addEventListener("submit", async func
 
 });
 
-</script>
 
-</body>
-</html>
+</script>
+</body></html>
